@@ -1,6 +1,4 @@
 import random
-
-
 from basics.hangman.hangman_art import stages, logo
 from basics.hangman.word import word_list
 

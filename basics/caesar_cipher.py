@@ -10,27 +10,18 @@ text = input("Type your message:\n").lower()
 shift = int(input("Type the shift number:\n"))
 
 
-def encrypt(plain_text, shift_amount):
-    sum = ""
-    for i in plain_text:
-        position = alphabet.index(i)
-        new_position = position + shift_amount
-        a = alphabet[new_position]
-        sum += a
-    print(f"The encoded text is{sum}")
 
-def decrypt(changed_text,shift_amount):
+def caesar(start_text,shift_amount,direction):
     sum =""
-    for i in changed_text:
-        changed_position = alphabet.index(i)
-        original_position = changed_position - shift_amount
-        a = alphabet[original_position]
-        sum += a
-    print(f"The decoded text is {sum}")
+    for i in start_text:
+        position = alphabet.index(i)
+        if direction == "decode":
+            shift_amount = shift_amount * -1
+
+        new_position = position + shift_amount
+        sum += alphabet[new_position]
+    print(f"The {direction}d text is{sum}")
 
 
-if direction == "encode":
-    encrypt(text,shift)
-else:
-    decrypt(text,shift)
+caesar(start_text=text,shift_amount=shift,direction=direction)
 

@@ -21,7 +21,9 @@ while not machine_off:
     else: 
         """ 커피를 골랐을 때 """
         item = coffee.find_drink(order)                 
-        if coffee_maker.is_resource_sufficient(item):             # True를 반환 시(can_make = True?))
+        if coffee_maker.is_resource_sufficient(item):
+            # is_resource_sufficient()메소드의 반환값이 True 인지 False인지를 체크
+            # True면 아래 코드 실행             
             cost = item.cost       # 원하는 커피의 가격(attribute)
             if money_machine.make_payment(cost):                    # True 반환 시 계산 or 환불 -> 잔돈
                 coffee_maker.make_coffee(item)
